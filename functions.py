@@ -2,7 +2,7 @@ import banco_dados
 
 def check_login(db, token):
     
-    if banco_dados.consulta(db, token):
+    if banco_dados.consulta_API(db, token):
         return 1
     else: return 0
     

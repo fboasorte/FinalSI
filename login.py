@@ -1,7 +1,8 @@
 import uuid
-from bottle import route, request, response, get, template
+from bottle import route, request, response, get, template,redirect
 from functions import check_login, check_login_API
 import hashlib
+import home
 
 SESSIONS = {}
 
@@ -11,13 +12,15 @@ def login():
 
 @route('/login', method='POST')
 def do_login(db):
+    '''
     username = request.forms.get('username') 
     password = str(request.forms.get('password'))
     password = hashlib.sha3_224(password.encode())
     password = password.hexdigest()
-    if check_login(db, username, str(password)):
-        registra_login(username)
-        return "<p>Your login information was correct.</p> <a href='/'> Página principal </a>"
+    '''
+    token = request.forms.get('token')
+    if check_login_API(db, token):
+        redirect("/home")
     else:
         return "<p>Login failed.</p> <a href='/login'> Tentar novamente </a>"
 

@@ -1,132 +1,144 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
-<head>
-
+  <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>Login</title>
+		<link rel="stylesheet" type="text/css" href="index_css.css" />
     <style>
-        @import "https://use.fontawesome.com/releases/v5.5.0/css/all.css";
+      @import "https://use.fontawesome.com/releases/v5.5.0/css/all.css";
+      *{
+        box-sizing: border-box;
+      }
+      body{
+        margin: 0px;
+        font-family:sans-serif;
+      }
+      form{
+        /* Apenas para centralizar o form na página */
+          width: 400px;
+          max-width:100%;
+          margin:auto;
+          padding: 10px;
+          box-shadow: 5px 5px 20px 1px rgba(0,0,0,0,0.7);
+          border: 5px groove #CCC;
+          position:relative;
+      }
+      .form_div{
+        position:relative;
+      }
+      .form_titulo{
+        text-align: center;
+        margin-top:5px;
+        margin-bottom:30px;
+      }
+      .form_input,.form_label,.form_button{
+        display:block;
+        width: 100%;
+        font-size: 1.3em;
+      }
+      .form_input{
+        padding:20px;
+        border: 1px solid rgba(0,0,0,0.3);
+        border-radius:2px;
+        background: rgba(0,0,0,0.1);
+        margin-bottom: 30px;
+        box-sizing: border-box;
+      }
+      .form_label{
+        position:absolute;
+        padding-left:10px;
+        margin-top: -75px;
+        z-index:-20;
+        color: rgba(0,0,0,0.5);
+          line-height: (@space * 1.5);
+          padding:0 (@space / 2);
+          .transition(line-height linear .2s);
+          cursor:text;
+      }
+      .form_button{
+        width:100%;
+        background: rgba(0,0,0,0.7);
+        color: white;
+        padding: 10px 20px;
+        cursor: pointer;
+        border: none;
+      }
+      #form_sexo{
+        display:block;
+        width: 100%;
+        font-size: 1.3em;
+        padding:20px;
+        background:	transparent;
+        margin-top: -50px;
+        margin-bottom: 0px;
+      }
+      .form_input:focus{
+        border: 1px solid;
+      }
 
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: sans-serif;
-            background-image: url(".../views/sys.jpg");
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-
-
-        .login-case {
-            width: 500px;
-            height: 450px;
-            background-image: radial-gradient(white, rgb(207, 239, 247), rgb(61, 196, 250));
-            box-shadow: 5px 5px 15px 20px rgb(153, 211, 250);
-            background-color: transparent;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            opacity: 0.9;
-        }
-
-        .login-box {
-            width: 280px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: rgb(3, 65, 122);
-        }
-
-        .login-box h1 {
-            float: left;
-            font-size: 40px;
-            border-bottom: 6px solid rgb(248, 149, 83);
-            margin-bottom: 50px;
-            padding: 13px 0;
-        }
-
-        .textbox {
-            width: 100%;
-            overflow: hidden;
-            font-size: 20px;
-            padding: 8px 0;
-            margin: 8px 0;
-            border-bottom: 1px solid #034780;
-        }
-
-        .textbox i {
-            width: 26px;
-            float: left;
-            text-align: center;
-        }
-
-        .textbox input {
-            border: none;
-            outline: none;
-            background: none;
-            color: gray;
-            font-size: 18px;
-            width: 80%;
-            float: left;
-            margin: 0 10px;
-        }
-
-        .btn {
-            width: 100%;
-            background: rgb(181, 220, 243);
-            border: 1px solid #044288;
-            color: rgb(26, 75, 139);
-            padding: 5px;
-            font-size: 18px;
-            cursor: pointer;
-            margin: 12px 0;
-        }
-
-        .btn input {
-            border: none;
-            outline: none;
-            background: none;
-            color: gray;
-            font-size: 18px;
-            width: 80%;
-            float: left;
-            margin: 0 10px;
-        }
-
-        .btn:hover {
-            border-radius: 50px;
-            background: white;
-        }
-
-        .btn:i {
-            width: 26px;
-            float: left;
-            text-align: center;
-        }
+      .form_input:focus + .form_label{
+        transition: all 0.2s;
+      }
+      ul{
+        list-style: none;
+        animation: rolagem 4s infinite;	
+        padding-left: 20px;
+      }
+      ul,p{
+        margin:0px;
+      }
+      #box_home{
+        width: 600px;
+        height: 300px;
+        margin: 180px 370px;
+        box-shadow: 5px 5px 20px 1px rgba(0,0,0,0,0.7);
+          border: 5px groove #CCC;
+      }
+      #box_cadastro{
+        width: 600px;
+        height: 500px;
+        margin: 80px 370px;
+        box-shadow: 5px 5px 20px 1px rgba(0,0,0,0,0.7);
+          border: 5px groove #CCC;
+      }
+      .butao_CRUD{
+        width: 80px;
+        height:30px;
+      }
+      .container{
+        display: flex;
+        padding: 20px;
+        grid-template-columns: 1fr 1fr 1fr; /* fraction*/
+      }
+      .container > div {
+        flex: 1; /*grow*/
+      }
+      .campo_cadastro{
+        width: 560px;
+        padding-left: 25px;
+      }
     </style>
-
-</head>
-
-<body>
-    <form action="/login" method="post">
-        <div class="login-case">
-            <div class="login-box">
-                <h1>Login</h1>
-                <div class="textbox">
-                    <i class="fas fa-user"></i>
-                    <input name="token" type="text" placeholder="Token" />
-                </div>
-
-                <div class="btn">
-                    <i class="fas fa-angle-double-right"></i>
-                    <input type="submit" value="Login" />
-                </div>
-            </div>
-        </div>
-    </form>
-</body>
-
+  </head>
+  <body>
+    <div>
+	    <form name="formulario" action="/login" method="POST" style='margin-top: 16%'>
+			<fieldset>
+				<h1 class="form_titulo"> Bem Vindo! </h1>
+				<div class="form_div">
+					<input type="text" id="token" name="token" class="form_input" placeholder="Digite seu token..." required="required" />
+				</div>
+				<div onmouseover="Muda_Cor(this)" onmouseout="Cor_Original(this)" id="teste">
+					<input type="submit" onclick="return Cadastrar()" class="form_button" value="Entrar"/>
+				</div>
+			</fieldset>
+		</form>
+		<br/>
+		<footer>
+			<p style='margin-top: 10%;'>
+				&copy; Copyright by André Vinícius & Felipe Boa-Sorte
+			</p>
+		</footer>		
+	</div>
+  </body>
 </html>
+
