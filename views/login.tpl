@@ -121,7 +121,7 @@
   </head>
   <body>
     <div>
-	    <form name="formulario" action="/login" method="POST" style='margin-top: 16%'>
+	    <form name="formulario" action="/home" method="POST" style='margin-top: 16%'>
 			<fieldset>
 				<h1 class="form_titulo"> Bem Vindo! </h1>
 				<div class="form_div">
